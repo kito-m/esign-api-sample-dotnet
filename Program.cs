@@ -1,11 +1,18 @@
-﻿// Get your free API Key at: https://www.ontask.io/solutions/ontask-api/
-// Full OnTask API Documentation: https://docs.ontask.io/#overview
+﻿// Get your free API Key at: https://www.docubee.com/solutions/integrations/docubee-api
+// Full Docubee API Documentation: https://docs.docubee.app/#overview
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
-String apiKey = "INSERT-API-KEY";
+string? apiKey = Environment.GetEnvironmentVariable("YOUR_API_Key");
+
+if (string.IsNullOrEmpty(apiKey))
+{
+    Console.Error.WriteLine("Error - Invalid token: Please set your API token environment variable.");
+    Environment.Exit(1);
+}
+
 String emailSigner = "signer@example.com";
 String emailFinalized = "completed@example.com";
 
@@ -43,7 +50,7 @@ async Task<String> UploadFile()
     // Upload the file and get a documentid to pass to create a signature endpoint
     // https://docs.ontask.io/#upload
 
-    String uploadURI = "https://app.ontask.io/api/v2/documents";
+    String uploadURI = "https://docubee.app/api/v2/documents";
 
     using (HttpClient client = new HttpClient())
     {
@@ -77,7 +84,7 @@ async Task<String> StartSignatureRequest(String documentID)
     // Call signature to and create and start signature process
     // https://docs.ontask.io/#signature-api
 
-    String uploadURI = "https://app.ontask.io/api/v2/signatures";
+    String uploadURI = "https://docs.docubee.app/#signature-api";
 
     // Build JSON request for creating an signature request
     JsonObject requestBody = new JsonObject
