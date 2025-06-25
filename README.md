@@ -24,7 +24,7 @@ Once both signers have completed the signing ceremony the completed document wil
 
 Use `dotnet run` to execute the sample.
 
-## About OnTask
+## About Docubee
 
 Building secure, compliant eSignature capabilities into your application takes up valuable time and development resources. Fortunately, we've already done all that hard work for you. With [Docubee API](https://www.docubee.com/products/integrate/), you can bridge the gaps between systems by integrating our proven eSignature and forms workflow functionality into your software. Docubee is reliable and secure; and takes the guesswork out of compliance by meeting regulations for HIPAA, SOC 2, and more. 
 
